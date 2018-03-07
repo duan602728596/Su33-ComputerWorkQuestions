@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<!-- 验证用户名密码为空 -->
+<form>
+  <p>
+    <label for="username">用户：</label>
+    <input id="username" type="text" >
+  </p>
+  <p>
+    <label for="password">密码：</label>
+    <input id="password" type="password" >
+  </p>
+  <p>
+    <button id="submit" type="button">提交</button>
+  </p>
+  <p id="information"></p>
+</form>
+<script>
+  const username = document.getElementById('username');
+  const password = document.getElementById('password');
+  const submit = document.getElementById('submit');
+  const information = document.getElementById('information');
+
+  function onSubmitVerification(event){
+    const u = username.value;
+    const p = password.value;
+
+    // 正常来说，/^\s*$/.test(u)来判断用户名是否为空
+    if(u === '' && p === ''){
+      information.innerHTML = '用户名或密码为空！';
+    }else{
+      information.innerHTML = '';
+    }
+  }
+
+  submit.addEventListener('click', onSubmitVerification, false);
+
+</script>
+</body>
+</html>

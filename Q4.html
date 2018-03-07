@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<!-- 九九乘法表 -->
+<pre id="pre"></pre>
+<script>
+let txt = '';
+
+for(let i = 1, j = 9; i <= j; i++){
+  for(let i2 = 1; i2 <= i; i2++){
+    let ji = i2 * i;
+    if(ji < 10){
+      ji = ji + ' ';
+    }
+    txt += `${ i2 }×${ i }=${ ji }  `;
+  }
+  txt += '\n';
+}
+
+console.log(txt);
+document.getElementById('pre').innerHTML = txt;
+</script>
+</body>
+</html>

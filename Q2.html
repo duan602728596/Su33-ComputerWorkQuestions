@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<!-- 指定区域倒计时 -->
+<p>
+  距离2018年双十一还有：
+  <span id="day"></span>天
+  <span id="hour"></span>时
+  <span id="minute"></span>分
+  <span id="second"></span>秒
+</p>
+<script>
+  // 双11
+  const s11 = new Date('2018-11-11 00:00:00');
+  const s11Time = s11.getTime();
+  // 当前日期
+  const now = new Date();
+  const s11Now = now.getTime();
+
+  const cha = (s11Time - s11Now) / 1000;
+
+  console.log(cha);
+
+  const day = Math.floor(cha / (24 * 60 * 60));
+  const hour = Math.floor((cha % (24 * 60 * 60)) / (60 * 60));
+  const minute = Math.floor(((cha % (24 * 60 * 60)) % (60 * 60)) / 60);
+  const second = Math.floor(((cha % (24 * 60 * 60)) % (60 * 60)) % 60);
+
+  document.getElementById('day').innerHTML = day;
+  document.getElementById('hour').innerHTML = hour;
+  document.getElementById('minute').innerHTML = minute;
+  document.getElementById('second').innerHTML = second;
+
+</script>
+</body>
+</html>

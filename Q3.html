@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .box {
+      width: 300px;
+      height: 300px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+<!-- 随机变色 -->
+<div class="box" id="box"></div>
+<button type="button" id="start">开始轮换</button>
+<button type="button" id="end">结束轮换</button>
+<script>
+  const color = [
+    '#ff0000',
+    '#ff00ff',
+    '#ffff00',
+    '#00ff00',
+    '#000000',
+    '#0000ff'
+  ];
+
+  const box = document.getElementById('box');
+  const start = document.getElementById('start');
+  const end = document.getElementById('end');
+  let index = 0;
+  let timer = null;
+
+  function changeColor(){
+    index = (index === color.length - 1) ? 0 : (index + 1);
+
+    box.style.backgroundColor = color[index];
+  }
+
+  box.style.backgroundColor = color[index];
+
+  function onStart(){
+    timer = setInterval(changeColor, 3000);
+  }
+
+  function onEnd(){
+    clearInterval(timer);
+  }
+
+  start.addEventListener('click', onStart, false);
+  end.addEventListener('click', onEnd, false);
+
+
+
+</script>
+</body>
+</html>

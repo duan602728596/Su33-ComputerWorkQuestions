@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<!-- 求最小公倍数 -->
+<script>
+  function zuixiaogongbeishu(x, y){
+    let result = 1;
+    const digui = (a, b)=>{
+      const min = a > b ? a : b;
+
+      let i = min;
+      while(i >= 1){
+        if(i === 1 && a !== x && b !== x){
+          break;
+        }
+        if(a % i === 0 && b % i === 0){
+          result = result * (a / i) * (b / i) * i;
+          break;
+        }
+        i -= 1;
+      }
+      if(i !== 1){
+        digui(a / i, b / i);
+      }
+    };
+
+    digui(x, y);
+    return result;
+  }
+
+  console.log(zuixiaogongbeishu(13, 26));
+</script>
+</body>
+</html>
